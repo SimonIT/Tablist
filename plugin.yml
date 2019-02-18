@@ -1,9 +1,0 @@
-name: Tablist
-version: 1.3.2.9
-autor: sn1cko
-main: com.sn1cko.tablist.tablist
-commands:
-   tablist:
-      description: This is the main Tablist command.
-      aliases: [tlist, tl]
-softdepend: [PlaceholderAPI]
