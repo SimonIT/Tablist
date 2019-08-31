@@ -6,12 +6,6 @@ import com.sn1cko.tablist.tablist;
 import org.bukkit.Bukkit;
 
 public class theEvents {
-    public tablist plugin;
-
-    public theEvents(tablist plugin) {
-        this.plugin = plugin;
-    }
-
     public static void register(tablist plugin) {
         Bukkit.getPluginManager().registerEvents(new playerJoin(plugin), plugin);
         Bukkit.getPluginManager().registerEvents(new playerLeave(plugin), plugin);

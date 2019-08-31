@@ -3,12 +3,9 @@ package com.sn1cko.tablist;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Timer;
 
 public class vars {
-    public static HashMap<String, Integer> joinTasks = new HashMap<>();
-    public static HashMap<String, Integer> taskNumber = new HashMap<>();
     public static BukkitTask tpsTask = null;
     public static Timer tpsTimer = null;
     public static ArrayList<Byte> tpsByteList = new ArrayList<>();
@@ -32,8 +29,4 @@ public class vars {
     public static boolean customPrefix = false;
     public static String customPrefixFormat = "";
     public tablist plugin;
-
-    public vars(tablist plugin) {
-        this.plugin = plugin;
-    }
 }

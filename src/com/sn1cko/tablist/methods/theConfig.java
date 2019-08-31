@@ -20,11 +20,6 @@ public class theConfig {
     public static String announcerTime = "Tablist.Settings.Time";
     public static String announcerMessagesHeader = "Tablist.Settings.Messages.Header";
     public static String announcerMessagesFooter = "Tablist.Settings.Messages.Footer";
-    public tablist plugin;
-
-    public theConfig(tablist plugin) {
-        this.plugin = plugin;
-    }
 
     public static void register(tablist plugin) {
         FileConfiguration fc = plugin.getConfig();

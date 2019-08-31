@@ -1,18 +1,22 @@
 package com.sn1cko.tablist;
 
 import com.sn1cko.tablist.methods.*;
+import net.gravitydevelopment.updater.Updater;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
 public class tablist extends JavaPlugin {
+    public static final int id = 90510;
     public static Economy economy = null;
     public static Chat chat = null;
     private static tablist pl;
@@ -23,6 +27,12 @@ public class tablist extends JavaPlugin {
 
     public static tablist getPlugin() {
         return pl;
+    }
+
+    @NotNull
+    @Override
+    public File getFile() {
+        return super.getFile();
     }
 
     public void onEnable() {
@@ -66,6 +76,8 @@ public class tablist extends JavaPlugin {
 
         PluginDescriptionFile pdf = this.getDescription();
         this.logger.info(pdf.getName() + "> " + pdf.getName() + " v" + pdf.getVersion() + " enabled!!");
+
+        new Updater(this, tablist.id, getFile(), Updater.UpdateType.NO_DOWNLOAD, true);
     }
 
     public void onDisable() {

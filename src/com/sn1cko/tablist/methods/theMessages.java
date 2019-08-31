@@ -13,12 +13,6 @@ import java.util.Calendar;
 import java.util.Iterator;
 
 public class theMessages {
-    public tablist plugin;
-
-    public theMessages(tablist plugin) {
-        this.plugin = plugin;
-    }
-
     public static String setupInt(Integer i) {
         String s = "" + i;
         if (i < 10) {
@@ -32,7 +26,7 @@ public class theMessages {
         String outputMode1 = "";
         String outputMode2 = "";
         String outputMode3 = "";
-        double dir = (double) ((yaw - 90.0F) % 360.0F);
+        double dir = (yaw - 90.0F) % 360.0F;
         if (dir < 0.0D) {
             dir += 360.0D;
         }
@@ -76,8 +70,6 @@ public class theMessages {
         }
 
         switch (mode) {
-            case 1:
-                return outputMode1;
             case 2:
                 return outputMode2;
             case 3:
@@ -140,7 +132,6 @@ public class theMessages {
         }
 
         onlinePlayersText = ChatColor.translateAlternateColorCodes('&', onlinePlayersText).replace("%online%", String.valueOf(onlineplayers)).replace("%vanished%", String.valueOf(vanishedplayers));
-        op = null;
         int ping = 0;
 
         try {
@@ -158,12 +149,12 @@ public class theMessages {
         int minutes = calender.get(Calendar.MINUTE);
         int seconds = calender.get(Calendar.SECOND);
         String time = setupInt(hours) + ":" + setupInt(minutes) + ":" + setupInt(seconds);
-        String old = ChatColor.translateAlternateColorCodes('&', s).replace("%player%", p.getName()).replace("%level%", String.valueOf(p.getLevel())).replace("%health%", String.valueOf(Math.round(p.getHealth()))).replace("%foodlevel%", String.valueOf(Math.round(Double.parseDouble(String.valueOf(p.getFoodLevel()))))).replace("%maxhealth%", String.valueOf(Math.round(p.getMaxHealth()))).replace("%iteminhandtype%", p.getItemInHand().getType().name()).replace("%iteminhandamount%", String.valueOf(p.getItemInHand().getAmount())).replace("%iteminhandid%", String.valueOf(p.getItemInHand().getType().getId())).replace("%gamemode%", p.getGameMode().name()).replace("%ping%", String.valueOf(ping)).replace("%difficulty%", "" + p.getWorld().getDifficulty()).replace("%world%", p.getWorld().getName()).replace("%blockx%", df.format(p.getLocation().getX())).replace("%blocky%", df.format(p.getLocation().getY())).replace("%blockz%", df.format(p.getLocation().getZ())).replace("%direction%", getDirection(p.getLocation().getYaw(), 1)).replace("%directionNumber%", getDirection(p.getLocation().getYaw(), 3)).replace("%directionLetter%", getDirection(p.getLocation().getYaw(), 2)).replace("%onlineplayers%", onlinePlayersText).replace("%vanishedplayers%", String.valueOf(vanishedplayers)).replace("%maxonlineplayers%", String.valueOf(Bukkit.getServer().getMaxPlayers())).replace("%servermotd%", Bukkit.getServer().getMotd()).replace("%servername%", Bukkit.getServer().getServerName()).replace("%serverid%", Bukkit.getServer().getServerId()).replace("%serverip%", Bukkit.getServer().getIp()).replace("%serverport%", String.valueOf(Bukkit.getServer().getPort())).replace("%staffs%", String.valueOf(staffs)).replace("%tps%", df.format((long) getTPS())).replace("%time%", time).replace("%date%", date);
+        String old = ChatColor.translateAlternateColorCodes('&', s).replace("%player%", p.getName()).replace("%level%", String.valueOf(p.getLevel())).replace("%health%", String.valueOf(Math.round(p.getHealth()))).replace("%foodlevel%", String.valueOf(Math.round(Double.parseDouble(String.valueOf(p.getFoodLevel()))))).replace("%maxhealth%", String.valueOf(Math.round(p.getMaxHealth()))).replace("%iteminhandtype%", p.getItemInHand().getType().name()).replace("%iteminhandamount%", String.valueOf(p.getItemInHand().getAmount())).replace("%iteminhandid%", String.valueOf(p.getItemInHand().getType().getId())).replace("%gamemode%", p.getGameMode().name()).replace("%ping%", String.valueOf(ping)).replace("%difficulty%", "" + p.getWorld().getDifficulty()).replace("%world%", p.getWorld().getName()).replace("%blockx%", df.format(p.getLocation().getX())).replace("%blocky%", df.format(p.getLocation().getY())).replace("%blockz%", df.format(p.getLocation().getZ())).replace("%direction%", getDirection(p.getLocation().getYaw(), 1)).replace("%directionNumber%", getDirection(p.getLocation().getYaw(), 3)).replace("%directionLetter%", getDirection(p.getLocation().getYaw(), 2)).replace("%onlineplayers%", onlinePlayersText).replace("%vanishedplayers%", String.valueOf(vanishedplayers)).replace("%maxonlineplayers%", String.valueOf(Bukkit.getServer().getMaxPlayers())).replace("%servermotd%", Bukkit.getServer().getMotd()).replace("%servername%", Bukkit.getServer().getName()).replace("%serverip%", Bukkit.getServer().getIp()).replace("%serverport%", String.valueOf(Bukkit.getServer().getPort())).replace("%staffs%", String.valueOf(staffs)).replace("%tps%", df.format(getTPS())).replace("%time%", time).replace("%date%", date);
         old = ChatColor.translateAlternateColorCodes('&', old);
         String prefix;
         if (old.contains("%money%")) {
             if (tablist.economy != null) {
-                prefix = df.format(tablist.economy.getBalance(p.getName()));
+                prefix = df.format(tablist.economy.getBalance(p));
                 old = old.replace("%money%", prefix);
             } else {
                 System.out.println(tablist.getPlugin().getDescription().getName() + "> " + vars.message_vaulterror + "Economy");
