@@ -14,12 +14,12 @@ import java.util.Iterator;
 
 public class theMessages {
     public static String setupInt(Integer i) {
-        String s = "" + i;
+        StringBuilder s = new StringBuilder(i.toString());
         if (i < 10) {
-            s = "0" + i;
+            s.append("0").append(i);
         }
 
-        return s;
+        return s.toString();
     }
 
     public static String getDirection(Float yaw, int mode) {
