@@ -76,7 +76,7 @@
         <dependency>
             <groupId>com.github.timbru31</groupId>
             <artifactId>updater</artifactId>
-            <version>updater-4.1.1</version>
+            <version>updater-4.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.bukkit</groupId>
